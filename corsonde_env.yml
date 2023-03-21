@@ -1,0 +1,26 @@
+name: corsonde_phd
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - astroplan
+  - astropy
+  - einsteinpy
+  - healpy
+  - ipyaladin
+  - ipykernel
+  - jupyter
+  - jupyterlab_widgets
+  - lalsuite
+  - ligo-gracedb
+  - matplotlib
+  - mocpy
+  - nb_conda_kernels
+  - numpy
+  - pip
+  - python=3.8
+  - sympy
+  - pycbc
+  - scipy
+  - spyder
+  - gwpy
