@@ -24,3 +24,6 @@ dependencies:
   - scipy
   - spyder
   - gwpy
+  - tensorflow
+  - pandas
+  - scikit-learn
