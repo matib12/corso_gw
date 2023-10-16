@@ -1,0 +1,13 @@
+scikit-learn
+astroplan
+astropy
+einsteinpy
+healpy
+ipyaladin
+ipykernel
+lalsuite
+ligo-gracedb
+mocpy
+pycbc
+gwpy
+tensorflow
