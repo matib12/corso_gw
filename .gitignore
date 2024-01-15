@@ -1,2 +1,5 @@
 *.odp
 .ipynb_checkpoints/
+sources/
+python/*solution*
+python/drafts/
