@@ -21,7 +21,25 @@ Per scaricare l'immagine docker `nutc22/gw-notebook`:
 
 ```shell
 docker pull nutc22/gw-notebook:0.4
+```
+Lanciare il docker:
+
+In Linux:
+
+```shell
 docker run -it --rm --user $(id -u):$(id -g) --group-add users -v ${PWD}:/home/jovyan/work/ -p <PORT>:8888 -e GEN_CERT=yes nutc22/gw-notebook:0.4
+```
+
+In Windows usando Command Line (cmd):
+
+```shell
+docker run -it --rm -v %cd%:/home/jovyan/work/ -p <PORT>:8888 -e GEN_CERT=yes nutc22/gw-notebook:0.4
+```
+
+In Windows usando PowerShell, si usa ${PWD} per ottenere:
+
+```shell
+docker run -it --rm -v ${PWD}:/home/jovyan/work/ -p <PORT>:8888 -e GEN_CERT=yes nutc22/gw-notebook:0.4
 ```
 
 > l'immagine è sviluppata per due tipi di architettura: `arm64` e `amd64`. Nel caso in cui non l'architettura richiesta non sia tra queste, si può tentare di ricostruire l'immagine come indicato nella sezione **Modificare o clonare l'immagine**
