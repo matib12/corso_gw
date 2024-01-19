@@ -1,71 +1,10 @@
 # corso_gw
 
-## Prerequisiti
+## Introduzione
+Il repositorio contiene i materiali didattici per i corsi di onde gravitazionali svolte nel Dipartimento di Fisica e Geologia dell'Universtià degli Studi di Perugia [Astrofisica multi-messaggio: dalle Onde gravitazionali ai Raggi gamma](https://www.unipg.it/personale/mateusz.bawaj/didattica) e [Experimental techniques for GW detection]().
 
-Si richiede l'installazione di docker engine: [guida ufficiale](https://docs.docker.com/engine/install/)
+I materiali sono divisi in due branch rispetto all'ambiente dove vengono presentati: [laurea magistrale (magistrale)](https://github.com/matib12/corso_gw/tree/magistrale) e [corso di dottorato (phd)](https://github.com/matib12/corso_gw/tree/phd). Il corso_gw adotta due approcci tecnici diversi: il più semplice ***magistrale*** sfrutta un container docker appositamente composto per contenere tutti i pachetti python necessari; mentre il più avvanzato **phd*** richiede la creazione di un ambiente virtuale conda.
 
-## Setup
-
-### Installazione di questa repository
-
-Per scaricare la presente repository:
-```shell
-git clone --branch docker https://github.com/matib12/corso_gw.git 
-chmod a+rw corso_gw
-cd corso_gw
-```
-### Installazione dell'immagine docker
-
-Per scaricare l'immagine docker `nutc22/gw-notebook`:
->  specificare la porta `<PORT>` prima di eseguire il comando. La porta su cui esporre jupyterlab è la `8888`. Tuttavia potrebbe essere impegnata, pertanto si consiglia di cambiarla con un diverso valore, preferibilmente maggiore di 8888.
-
-```shell
-docker pull nutc22/gw-notebook:0.4
-```
-Lanciare il docker:
-
-In Linux:
-
-```shell
-docker run -it --rm --user $(id -u):$(id -g) --group-add users -v ${PWD}:/home/jovyan/work/ -p <PORT>:8888 -e GEN_CERT=yes nutc22/gw-notebook:0.4
-```
-
-In Windows usando Command Line (cmd):
-
-```shell
-docker run -it --rm -v %cd%:/home/jovyan/work/ -p <PORT>:8888 -e GEN_CERT=yes nutc22/gw-notebook:0.4
-```
-
-In Windows usando PowerShell, si usa ${PWD} per ottenere:
-
-```shell
-docker run -it --rm -v ${PWD}:/home/jovyan/work/ -p <PORT>:8888 -e GEN_CERT=yes nutc22/gw-notebook:0.4
-```
-
-> l'immagine è sviluppata per due tipi di architettura: `arm64` e `amd64`. Nel caso in cui non l'architettura richiesta non sia tra queste, si può tentare di ricostruire l'immagine come indicato nella sezione **Modificare o clonare l'immagine**
-### Accesso al jupyterlab
-
-Visitare il sito `https://<IP-ADDR>:<PORT>` e fidarsi del certificato auto firmato.
-> il valore `<IP-ADDR>` è l'indirizzo ip del server. Se si lancia il progetto dalla propria macchina, il valore da sostituire è `127.0.0.1`.
-
-Inserire il token di sicurezza indicato nella shell per effettuare l'accesso
-
-Una volta dentro al jupyterlab è possibile trovare i file di questa repository all'interno della cartella `work`
-
-### Terminare il jupyterlab
-
-Per terminare il processo digitare `^C`
+Le istruzioni particolari si trovano nei rispettivi branch.
 
 
-## Modificare o clonare l'immagine
-
-se si desidera ri-costruire l'immagine docker:
-
-```shell
-docker build . -t gw-notebook:<tag>
-```
-
-a questo punto si può creare il container a partire dalla nuova immagine:
-```shell
-docker run -it --user $(id -u):$(id -g) --group-add users -v ${PWD}:/home/jovyan/work/ -p <PORT>:8888 -e GEN_CERT=yes gw-notebook:<tag>
-```
