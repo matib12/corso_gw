@@ -67,5 +67,5 @@ docker build . -t gw-notebook:<tag>
 
 a questo punto si può creare il container a partire dalla nuova immagine:
 ```shell
-docker run -it --user $(id -u):$(id -g) --group-add users -v ${PWD}:/home/jovyan/work/ -p <PORT>:8888 -e GEN_CERT=yes gw-notebook:<tag>
+docker run -it --user $(id -u):$(id -g) --group-add users -v "${PWD}":/home/jovyan/work/ -p <PORT>:8888 -e GEN_CERT=yes gw-notebook:<tag>
 ```
